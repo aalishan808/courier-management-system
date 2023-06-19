@@ -9,7 +9,13 @@ Receiver: The receiver represents the intended recipient of the courier. They ca
 
 Courier: Couriers are responsible for physically delivering the packages from the sender to the receiver. Once assigned to a courier, they can access their assigned courier details, including sender and receiver information, delivery instructions, and any special handling requirements. Couriers can update the delivery status, capture proof of delivery through photographs or electronic signatures, and communicate with the sender or receiver if necessary.
 
+
+
+
+
+
 Database: 
+
 create table admin_(
 
 adminCNIC varchar(100) primary key,
