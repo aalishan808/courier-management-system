@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +14,7 @@ namespace CourierProject
 {
     public partial class Form1 : Form
     {
+        String filePath;
         OracleConnection con;
         public Form1()
         {
@@ -55,6 +56,7 @@ namespace CourierProject
                 if (row > 0)
                 {
                     MessageBox.Show("SUCCESS");
+                   
                 }
                 con.Close();
 
@@ -72,7 +74,7 @@ namespace CourierProject
             String strCon = @"DATA SOURCE=localhost:1521/orcl;USER ID=sys;PASSWORD=Admin@123;DBA PRIVILEGE=SYSDBA";
             con = new OracleConnection(strCon);
         }
-        String filePath = "";
+        
 
         private void Load_button1_Click(object sender, EventArgs e)
         {
