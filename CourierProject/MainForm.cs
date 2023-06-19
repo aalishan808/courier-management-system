@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -62,6 +62,11 @@ namespace CourierProject
         private void button6_Click(object sender, EventArgs e)
         {
             LOADFORM(new UserForm());
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
