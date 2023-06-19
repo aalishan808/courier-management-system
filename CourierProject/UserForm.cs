@@ -1,4 +1,4 @@
-﻿using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,15 +17,15 @@ namespace CourierProject
     public partial class UserForm : Form
     {
         OracleConnection con;
-        public String admincnic_ { get; set; }
+     String cnic = LoginForm.cnic ;
         public UserForm()
         {
             InitializeComponent();
            
 
-
         }
-        String imageadress = "";
+        
+        String imageadress ;
         private void UserForm_Load(object sender, EventArgs e)
         {
             
@@ -37,7 +37,7 @@ namespace CourierProject
                 
                 OracleCommand cmd = con.CreateCommand();
                 
-                cmd.CommandText = $"SELECT  ADMINCNIC, NAME_, EMAIL,PHONENO, ADRESS, GENDER, AGE,IMAGEADRESS FROM ADMIN_ ";
+                cmd.CommandText = $"SELECT  ADMINCNIC, aNAME_, aEMAIL,aPHONENO, aADRESS, aGENDER, aAGE,IMAGEADRESS FROM ADMIN_ where adminCNIC = '{cnic}'";
                 
                 //WHERE adminCNIC = '{admincnic_}'
                 
@@ -52,33 +52,34 @@ namespace CourierProject
                 {
                     
                     reader.Read();
-                  
+
                     //  DataTable dataTable = new DataTable();
                     //dataTable.Load(reader);
                     
-                    namelabel.Text = reader["NAME_"].ToString(); // Replace Column1 with the actual column name
+                    namelabel.Text = reader["aNAME_"].ToString(); // Replace Column1 with the actual column name
                     
-                    agelabel.Text = reader["AGE"].ToString();  // Assuming you have a DataGridView control named dataGridView1 on your form
+                    agelabel.Text = reader["aAGE"].ToString();  // Assuming you have a DataGridView control named dataGridView1 on your form
                     
-                    cniclabel.Text =admincnic_; // Replace Column1 with the actual column name
+                    cniclabel.Text =cnic; // Replace Column1 with the actual column name
                     
-                    emaillabel.Text = reader["EMAIL"].ToString();
+                    emaillabel.Text = reader["aEMAIL"].ToString();
                     
-                    phonenolabel.Text = reader["PHONENO"].ToString(); // Replace Column1 with the actual column name
-                    //adresslabel.Text = reader["ADRESS"].ToString();
+                    phonenolabel.Text = reader["aPHONENO"].ToString(); // Replace Column1 with the actual column name
+                    
+                    adresslabel.Text = reader["aADRESS"].ToString();
                     
                     imageadress = reader["IMAGEADRESS"].ToString();
-                    //adresslabel.Text = reader["ADMINCNIC"].ToString();
                    
-                 //   genderlabel.Text = admincnic_ ;
+                    genderlabel.Text = reader["aGENDER"].ToString() ;
                 
-                    adresslabel.Text = reader["adress"].ToString();
+                    adresslabel.Text = reader["aadress"].ToString();
                 
                 }
                
                 profilepic.Image = Image.FromFile(imageadress);
                 
                 con.Close();
+               
 
 
             }
@@ -93,6 +94,7 @@ namespace CourierProject
 
         }
 
+      
     }
 
 }
