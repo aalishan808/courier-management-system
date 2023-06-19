@@ -10,7 +10,7 @@ Receiver: The receiver represents the intended recipient of the courier. They ca
 Courier: Couriers are responsible for physically delivering the packages from the sender to the receiver. Once assigned to a courier, they can access their assigned courier details, including sender and receiver information, delivery instructions, and any special handling requirements. Couriers can update the delivery status, capture proof of delivery through photographs or electronic signatures, and communicate with the sender or receiver if necessary.
 
 Database: 
-        create table admin_(
+create table admin_(
 
 adminCNIC varchar(100) primary key,
 aname_ varchar(100),
@@ -29,17 +29,17 @@ imageadress varchar(100)
 CREATE TABLE courier_ (
 
 
-    courierid INT PRIMARY KEY,
-    adminCNIC varchar(300),
-    receiverCNIC varchar(300),
-    senderCNIC varchar(300),
-    status varchar(300),
-    weight INT,
-    senddate date,
-    receivedate date,
-    constraint admincnic FOREIGN KEY (adminCNIC) REFERENCES admin_ (adminCNIC),
-    constraint receivercnic FOREIGN KEY (receiverCNIC) REFERENCES receiver_ (receiverCNIC),
-    constraint sendercnic FOREIGN KEY (senderCNIC) REFERENCES sender_ (senderCNIC)
+courierid INT PRIMARY KEY,
+adminCNIC varchar(300),
+receiverCNIC varchar(300),
+senderCNIC varchar(300),
+status varchar(300),
+weight INT,
+senddate date,
+receivedate date,
+constraint admincnic FOREIGN KEY (adminCNIC) REFERENCES admin_ (adminCNIC),
+constraint receivercnic FOREIGN KEY (receiverCNIC) REFERENCES receiver_ (receiverCNIC),
+constraint sendercnic FOREIGN KEY (senderCNIC) REFERENCES sender_ (senderCNIC)
 
 
 )
